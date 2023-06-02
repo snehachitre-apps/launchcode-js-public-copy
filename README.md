@@ -1,2 +1,2 @@
 # launchcode-js
-Studio Exercise: Data and Variables
+This repository has Execercises, Graded assignments and Studios for Launchcode Web Developmemt code -- Javascipt module. 
