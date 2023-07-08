@@ -53,7 +53,7 @@ describe("Rover class", function() {
     expect(Object.keys(response[0].roverStatus)).toContain('mode');
     expect(Object.keys(response[0].roverStatus)).toContain('generatorWatts');
     expect(Object.keys(response[0].roverStatus)).toContain('position');
-    //NOT SURE HOW TO CHECK ACCURACY
+
     // console.log(rover);
     // console.log(response);
     expect(response[0].roverStatus.position).toEqual(98382);
@@ -85,7 +85,7 @@ describe("Rover class", function() {
     expect(response[0].completed).toBeTrue();
     expect(rover.mode).toEqual('NORMAL');
     //console.log(rover);
-   // console.log(response);
+    // console.log(response);
 
 
   });
@@ -99,13 +99,14 @@ describe("Rover class", function() {
 
     expect(Object.keys(response[1])).toContain('completed');
     expect(response[1].completed).toBeFalse();
+    expect(rover.position).toEqual(98382);
     // console.log(rover);
     // console.log(response);
   });
 
 
   //Test 13
-  
+
   it("responds with position for move command", function() {
     let commands = [new Command('MOVE', 1000)];
     let message = new Message('Test for move command whether rover moves position', commands);
@@ -113,7 +114,7 @@ describe("Rover class", function() {
     let response = rover.receiveMessage(message);
     //IF WE WANT TO ADD THE VALUE OF NEW POSITION TO EXISTING
     // expect(rover.position).toEqual(91000);
-     //IF WE WANT TO UPDATE VALUE TO NEW POSITION
+    //IF WE WANT TO UPDATE VALUE TO NEW POSITION
     expect(rover.position).toEqual(1000);
 
 

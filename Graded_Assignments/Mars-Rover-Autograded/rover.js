@@ -12,7 +12,7 @@ class Rover {
     let commands = message.commands;
     // console.log(commands);
     let results = [];
-    
+
     // loop for each command to know command type and value. Set appropriate properties. 
     for (let i = 0; i < commands.length; i++) {
       //assign  a  temp result object
@@ -34,11 +34,11 @@ class Rover {
       }
       else if (commands[i].commandType === 'STATUS_CHECK') {
         //status check returns current status of rover
-        
+
         current_resultobject['completed'] = true;
         //set roverStatus as current mode ,generatorWatts, position values
-    let roverStatus = { mode: this.mode, generatorWatts: this.generatorWatts,   position: this.position };
-        
+        let roverStatus = { mode: this.mode, generatorWatts: this.generatorWatts, position: this.position };
+
         current_resultobject['roverStatus'] = roverStatus;
       }
       else if (commands[i].commandType === 'MODE_CHANGE') {
@@ -59,6 +59,7 @@ class Rover {
     let msg = message.name;
     //set results value array by calling functon setResultsArray and get response array
     let results = this.setResultsArray(message);
+    //constructinf response
     let response = {
       message: msg,
       results: results
