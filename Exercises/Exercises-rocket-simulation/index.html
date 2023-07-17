@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Rocket Simulation</title>
+  <style>
+    label {
+      display: block;
+      margin-bottom: 7px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TODO: add form here -->
+  <form action="https://handlers.education.launchcode.org/request-parrot" method="POST">
+    <label>Test Name <input type="text" name="testName" /></label>
+    <label>Test Date <input type="date" name="testDate"></input></label>
+    <label>Rocket Type <select name="rocketType">
+        <option value="Select One">Select One..</option>
+        <option value="Brant">Brant</option>
+        <option value="Lynx">Lynx</option>
+        <option value="Lynx">Orion</option>
+        <option value="Lynx">Terrier</option>
+      </select>
+    </label>
+    <label>Number of Rocket Boosters<input type="number" name="boosterCount"></label>
+
+    Wind Rating:
+    <label>No Wind <input type="radio" name="windRating" value=0></input></label>
+    <label>Mild <input type="radio" name="windRating" value=10></input></label>
+    <label>Strong <input type="radio" name="windRating" value=20></input></label>
+
+    <label>Use production grade servers <input type="checkbox" name="productionServers" </label>
+      <br />
+      <button type="submit">Run Simulation</button>
+      <form>
+      </form>
+
+
+      <script>
+        window.addEventListener("load", function () {
+          let form = document.querySelector("form");
+          form.addEventListener("submit", function (event) {
+            let testName = document.querySelector("input[name=testName]");
+            let testDate = document.querySelector("input[name=testDate]");
+            let select = document.querySelector("select[name=rocketType]");
+            let radio = document.querySelector("input[name=windRating]");
+            if (select.value === "Select One")
+              alert("Please select an option from listed options!");
+            if (testDate.value === "")
+              alert("Date needs to be in format mm-dd-yyyy.");
+            let numRocketBooster = document.querySelector("input[name=boosterCount]");
+            if (numRocketBooster.value < 1 || numRocketBooster.value > 10)
+              window.alert("Number of Rocker Boosters has to be between 1-9.");
+            if (testName.value === "" || testDate.value === "" || numRocketBooster.value === "" || select.value === "Select One" || radio.value === "")
+              alert("Please fill all the values in form");
+
+          });
+        });
+      </script>
+      <p>WARNING: This ONLY works in <b>replit</b> if this "result" page is opened in its own window. Click the icon
+        that
+        shows a box with an arrow coming out of it.
+      </p>
+</body>
+
+</html>
